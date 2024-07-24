@@ -8,10 +8,32 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        primary: {
+          DEFAULT: '#633CFF',
+          hover: '#BEADFF',
+          light: '#EFEBFF',
+        },
+        secondary: '#BEADFF',
+        accent: '#FF3939',
+        gray: {
+          50: '#FAFAFA',
+          100: '#D9D9D9',
+          200: '#737373',
+          300: '#333333',
+        },
+      },
+      fontFamily: {
+        sans: ['Instrument Sans', 'sans-serif'],
+      },
+      fontSize: {
+        'heading-m': ['32px', { lineHeight: '150%' }],
+        'heading-s': ['16px', { lineHeight: '150%' }],
+        'body-m': ['16px', { lineHeight: '150%' }],
+        'body-s': ['12px', { lineHeight: '150%' }],
+      },
+      borderRadius: {
+        'btn': '8px',
       },
     },
   },

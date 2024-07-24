@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,16 +18,38 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  body {
+    @apply font-sans text-gray-300 bg-gray-50;
+  }
 }
 
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-btn font-semibold transition-colors duration-200;
+  }
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-hover;
+  }
+  .btn-secondary {
+    @apply bg-primary-light text-primary hover:bg-secondary;
+  }
+  .input {
+    @apply w-full px-4 py-2 border border-gray-100 rounded-btn focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+  }
+  .input-error {
+    @apply border-accent focus:ring-accent;
+  }
+  .dropdown {
+    @apply w-full px-4 py-2 border border-gray-100 rounded-btn appearance-none bg-white;
+  }
+  .tab {
+    @apply px-4 py-2 font-semibold text-gray-200 hover:text-primary;
+  }
+  .tab-active {
+    @apply text-primary;
+  }
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
