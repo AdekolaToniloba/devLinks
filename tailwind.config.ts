@@ -23,6 +23,9 @@ const config: Config = {
           300: '#333333',
         },
       },
+      // backgroundImage: {
+      //   'MobileMockup': "url('/mobile-preview.svg')"
+      // },
       fontFamily: {
         sans: ['Instrument Sans', 'sans-serif'],
       },

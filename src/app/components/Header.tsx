@@ -1,43 +1,54 @@
 import React from "react";
-import Image from "next/image";
-import LinkIcon from "../../../public/ph_link-bold.svg";
-import ProfileICon from "../../../public/profile-icon.svg";
-import LogoImg from "../components/Logo";
 import Link from "next/link";
+import LogoImg from "./Logo";
+import { Link as LinkIcon, User } from "lucide-react";
 
 interface HeaderProps {
+  activeTab: "links" | "profile";
+  setActiveTab: (tab: "links" | "profile") => void;
   src: string;
   alt: string;
 }
 
-const Header = () => {
+const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   return (
-    <div>
-      <nav className="bg-white flex self-stretch justify-between items-center border-gray-200 px-4 lg:px-6 py-2.5">
-        <div className="flex gap-2">
+    <header className="bg-white shadow-sm">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
           <LogoImg />
-          <p className="text-3xl">devlinks</p>
+          <span className="text-xl font-bold">devlinks</span>
         </div>
-
-        <div className="flex gap-2">
-          <div className="flex gap-2 flex-row">
-            <Link href="/">
-              <Image src={LinkIcon} alt="Link Icon" />
-              <p>Links</p>
-            </Link>
-          </div>
-
-          <div className="flex">
-            <Link href="/">
-              <Image src={ProfileICon} alt="Profile Icon" />
-              <p>Profile Details</p>
-            </Link>
-          </div>
-        </div>
-
-        <div>Preview</div>
-      </nav>
-    </div>
+        <nav>
+          <ul className="flex gap-4">
+            <li>
+              <button
+                className={`tab flex items-center gap-2 ${
+                  activeTab === "links" ? "tab-active" : ""
+                }`}
+                onClick={() => setActiveTab("links")}
+              >
+                <LinkIcon size={20} />
+                Links
+              </button>
+            </li>
+            <li>
+              <button
+                className={`tab flex items-center gap-2 ${
+                  activeTab === "profile" ? "tab-active" : ""
+                }`}
+                onClick={() => setActiveTab("profile")}
+              >
+                <User size={20} />
+                Profile Details
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <Link href="/preview" className="btn btn-secondary">
+          Preview
+        </Link>
+      </div>
+    </header>
   );
 };
 
