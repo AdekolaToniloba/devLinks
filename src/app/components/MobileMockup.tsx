@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, PackageX } from "lucide-react";
 import Image from "next/image";
 
 interface Link {
@@ -62,9 +62,11 @@ const MobileMockup: React.FC<MobileMockupProps> = ({ links, onCopyLink }) => {
             style={{ backgroundColor: link.color }}
           >
             <Image
-              src={link.icon}
+              src={`/icons/${link.icon}`}
               alt={link.platform}
               className="w-6 h-6 mr-3"
+              width={30}
+              height={30}
             />
             <span
               className="flex-grow text-white font-semibold"
