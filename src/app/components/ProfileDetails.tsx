@@ -1,4 +1,5 @@
 import React from "react";
+import { Image as ImageIcon } from "lucide-react";
 
 const ProfileDetails: React.FC = () => {
   return (
@@ -12,10 +13,13 @@ const ProfileDetails: React.FC = () => {
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Profile picture
           </label>
-          <div className="flex items-center justify-center w-full h-48 bg-gray-100 rounded-lg border-2 border-dashed border-gray-300">
-            <button type="button" className="btn btn-secondary">
-              + Upload Image
-            </button>
+          <div className="flex items-center justify-center w-full h-48 bg-[#FAFAFA] rounded-lg ">
+            <div className="flex flex-col items-center justify-center rounded-lg bg-[#EFEBFF] w-[153px] h-[153px] py-4 px-4">
+              <ImageIcon size={40} className="text-[#633CFF]" />
+              <button type="button" className="btn btn-secondary">
+                + Upload Image
+              </button>
+            </div>
           </div>
           <p className="text-xs text-gray-500 mt-1">
             Image must be below 1024x1024px. Use PNG or JPG format.
@@ -43,7 +47,7 @@ const ProfileDetails: React.FC = () => {
             placeholder="e.g. email@example.com"
           />
         </div>
-        <button type="submit" className="btn btn-primary w-full">
+        <button type="submit" className="btn btn-primary w-[91px]">
           Save
         </button>
       </form>

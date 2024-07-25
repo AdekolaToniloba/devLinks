@@ -31,6 +31,9 @@
   .btn-primary {
     @apply bg-primary text-white hover:bg-primary-hover;
   }
+  .btn-default{
+    @apply border border-primary text-primary bg-transparent  hover:bg-primary-light
+  }
   .btn-secondary {
     @apply bg-primary-light text-primary hover:bg-secondary;
   }
@@ -47,7 +50,7 @@
     @apply px-4 py-2 font-semibold text-gray-200 hover:text-primary;
   }
   .tab-active {
-    @apply text-primary;
+    @apply text-primary bg-primary-light rounded-md px-4;
   }
 }
 @layer utilities {

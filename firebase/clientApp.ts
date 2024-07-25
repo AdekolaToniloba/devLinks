@@ -12,6 +12,9 @@ const clientCredentials = {
 }; 
 
 let firebase_app = getApps().length === 0 ? initializeApp(clientCredentials) : getApps()[0];
+console.log("Firebase app initialized:", firebase_app.name);
 
 export const auth = getAuth(firebase_app);
 export const db = getFirestore(firebase_app);
+
+console.log("Firestore instance:", db);

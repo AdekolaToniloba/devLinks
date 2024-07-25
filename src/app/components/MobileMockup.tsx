@@ -1,6 +1,29 @@
 import React from "react";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
-const MobileMockup: React.FC = () => {
+interface Link {
+  id: string;
+  platform: string;
+  url: string;
+  color: string;
+  icon: string;
+}
+
+interface MobileMockupProps {
+  links: Link[];
+  onCopyLink: (url: string) => void;
+}
+
+const MobileMockup: React.FC<MobileMockupProps> = ({ links, onCopyLink }) => {
+  const handleClick = (url: string, isArrow: boolean) => {
+    if (isArrow) {
+      window.open(url, "_blank");
+    } else {
+      onCopyLink(url);
+    }
+  };
+
   return (
     <div className="relative w-full max-w-[308px] aspect-[308/632] mx-auto">
       {/* SVG for the mobile frame */}
@@ -32,8 +55,28 @@ const MobileMockup: React.FC = () => {
         {/* Description placeholder */}
         <div className="w-48 h-3 bg-[#EEEEEE] mb-8" />
         {/* Link placeholders */}
-        {[...Array(5)].map((_, index) => (
-          <div key={index} className="w-full h-12 bg-[#EEEEEE] mb-4 rounded" />
+        {links.map((link, index) => (
+          <div
+            key={link.id}
+            className="w-full h-12 mb-4 rounded flex items-center px-4 cursor-pointer"
+            style={{ backgroundColor: link.color }}
+          >
+            <Image
+              src={link.icon}
+              alt={link.platform}
+              className="w-6 h-6 mr-3"
+            />
+            <span
+              className="flex-grow text-white font-semibold"
+              onClick={() => handleClick(link.url, false)}
+            >
+              {link.platform}
+            </span>
+            <ArrowRight
+              className="text-white"
+              onClick={() => handleClick(link.url, true)}
+            />
+          </div>
         ))}
       </div>
     </div>

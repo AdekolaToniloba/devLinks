@@ -6,8 +6,6 @@ import { Link as LinkIcon, User } from "lucide-react";
 interface HeaderProps {
   activeTab: "links" | "profile";
   setActiveTab: (tab: "links" | "profile") => void;
-  src: string;
-  alt: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
@@ -44,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             </li>
           </ul>
         </nav>
-        <Link href="/preview" className="btn btn-secondary">
+        <Link href="/preview" className="btn btn-default">
           Preview
         </Link>
       </div>
